@@ -58,7 +58,7 @@ _Technical reference and signal logic derived from [Parkytowers](http://www.park
 - **1x** Resistor (See table above for values)
 - **1x** HP Blue Tip Replacement Cable (4.5mm x 3.0mm)
 - **1x** 3D Printed Enclosure
-- **4x** M3 ISO7380-1 Screws (**Length: 10mm**)
+- **4x** M3x10 ISO7380-1 Screws
 
 ## Charger & Cable Requirements
 
@@ -110,7 +110,7 @@ _Figure 3: 3D model render._
 > 3. Verify you have **+20V** on the Inner Ring and **0V (GND)** on the Outer Sleeve.
 > 4. Only proceed if the polarity and voltage are correct.
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 | Symptom                        | Possible Cause          | Solution                                                                                                             |
 | :----------------------------- | :---------------------- | :------------------------------------------------------------------------------------------------------------------- |
@@ -118,6 +118,17 @@ _Figure 3: 3D model render._
 | **"Plugged in, not charging"** | Resistor issue          | Check if the resistor value matches your target wattage. Ensure solder joints on the ID pin are solid.               |
 | **"Smart Pin Error" on Boot**  | ID Pin connection       | The center pin connection is likely broken or the resistor value is incorrect. Check continuity.                     |
 | **Intermittent Charging**      | Weak Charger            | Your charger (e.g., 30W) might be cutting power due to Over Current Protection (OCP) under load. Use a 45W+ charger. |
+
+## My Experience with 30W Adapters
+
+I tested this configuration with a 30W GaN adapter, which is rated below the laptop's 45W requirement. Although I minimized system power draw, the adapter's Over-Current Protection (OCP) frequently triggered. This occurs because the laptop's battery charging circuit aggressively draws current to rapidly charge the battery, causing the total power demand to spike above the 30W limit regardless of CPU load.
+
+**Observations:**
+
+- **30W Adapter:** Stable charging was only possible while the laptop was **powered off**. Simultaneous use and charging caused the adapter to cut power.
+- **67W Adapter:** I subsequently tested a 67W charger, which worked flawlessly during operation.
+
+**Recommendation:** For stable performance, use a charger rated for 45W or higher.
 
 ## Disclaimer
 
