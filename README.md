@@ -21,8 +21,6 @@ This project solves this inconvenience by enabling the use of compact, universal
 
 The circuit utilizes a PD trigger module to request a fixed **20V** profile from the USB-C charger. While HP laptops nominally operate at 19.5V, the 20V standard falls within the safe input voltage tolerance of the device's power regulation circuitry.
 
-![PD Trigger Module](assets/PD_trigger.jpg)
-
 ### Smart Pin Spoofing
 
 HP power supplies identify their wattage capacity via an analog signal on the central ID pin. This project replicates that signal using a pull-up resistor connected between the **V+ (20V)** line and the **ID Pin**.
@@ -46,11 +44,11 @@ The HP "Blue Tip" (4.5mm) connector consists of three connection points.
 
 To emulate specific wattage ratings, the corresponding resistor must be soldered between the V+ line and the ID Pin.
 
-| Target Power Rating | Required Resistor   |
-| :------------------ | :------------------ |
-| **45W**             | **~470kΩ - 510kΩ**  |
-| 65W                 | ~383kΩ              |
-| 90W                 | ~294kΩ              |
+| Target Power Rating | Required Resistor  |
+| :------------------ | :----------------- |
+| **45W**             | **~470kΩ - 510kΩ** |
+| 65W                 | ~383kΩ             |
+| 90W                 | ~294kΩ             |
 
 _Technical reference and signal logic derived from [Parkytowers](https://www.parkytowers.me.uk/thin/hp/hp_psu.shtml)._
 
@@ -67,8 +65,8 @@ _Technical reference and signal logic derived from [Parkytowers](https://www.par
 Not all USB-C chargers will work. The PD Trigger module requires a specific handshake to output 20V.
 
 1.  **Charger:** Must support **Power Delivery (PD) protocol** and strictly support **20V output**.
-        - _Compatible:_ 45W, 65W, 100W GaN Chargers.
-        - _Incompatible:_ Standard 5V phone chargers, QC3.0 chargers without PD.
+    - _Compatible:_ 45W, 65W, 100W GaN Chargers.
+    - _Incompatible:_ Standard 5V phone chargers, QC3.0 chargers without PD.
 2.  **USB-C Cable:** Must be rated for at least **3A (60W)**. For higher power setups (65W+), a 5A E-Marked cable is recommended.
 
 ## 3D Enclosure
@@ -92,12 +90,12 @@ _Figure 3: 3D model render._
 3.  **Verification (Crucial Step):** Use a multimeter to confirm which wire is V+, GND, and ID. Label them if necessary.
 4.  **Wire Prep:** Carefully trim the wires to the appropriate length and strip the insulation.
 5.  **Soldering (Main Power):**
-        - Solder the **V+ (Inner Ring)** wire to the **VCC/V+** pad on the PD board.
-        - Solder the **GND (Outer Sleeve)** wire to the **GND** pad on the board.
+    - Solder the **V+ (Inner Ring)** wire to the **VCC/V+** pad on the PD board.
+    - Solder the **GND (Outer Sleeve)** wire to the **GND** pad on the board.
 6.  **Soldering (ID Resistor):**
-        - Insulate the resistor legs using heat shrink tubing.
-        - Solder one leg of the resistor to the **VCC/V+** pad.
-        - Solder the other leg to the **ID (Center Pin)** wire.
+    - Insulate the resistor legs using heat shrink tubing.
+    - Solder one leg of the resistor to the **VCC/V+** pad.
+    - Solder the other leg to the **ID (Center Pin)** wire.
 7.  **Insulation & Securing:** Ensure all exposed connections are insulated. Use hot glue to cover the pads and secure wires against vibration.
 8.  **Final Assembly:** Close the enclosure lid and fasten it using the four M3x10mm screws.
 
@@ -110,12 +108,12 @@ _Figure 3: 3D model render._
 
 ## Troubleshooting
 
-| Symptom                         | Possible Cause           | Solution                                                                                                             |
-| :------------------------------ | :----------------------- | :------------------------------------------------------------------------------------------------------------------- |
-| **No Voltage Output**           | Charger incompatibility  | Ensure your USB-C charger supports **20V output** (check label).                                                     |
-| **"Plugged in, not charging"**  | Resistor issue           | Check if the resistor value matches your target wattage. Ensure solder joints on the ID pin are solid.               |
-| **"Smart Pin Error" on Boot**   | ID Pin connection        | The center pin connection is likely broken or the resistor value is incorrect. Check continuity.                     |
-| **Intermittent Charging**       | Weak Charger             | Your charger (e.g., 30W) might be cutting power due to Over Current Protection (OCP) under load. Use a 45W+ charger. |
+| Symptom                        | Possible Cause          | Solution                                                                                                             |
+| :----------------------------- | :---------------------- | :------------------------------------------------------------------------------------------------------------------- |
+| **No Voltage Output**          | Charger incompatibility | Ensure your USB-C charger supports **20V output** (check label).                                                     |
+| **"Plugged in, not charging"** | Resistor issue          | Check if the resistor value matches your target wattage. Ensure solder joints on the ID pin are solid.               |
+| **"Smart Pin Error" on Boot**  | ID Pin connection       | The center pin connection is likely broken or the resistor value is incorrect. Check continuity.                     |
+| **Intermittent Charging**      | Weak Charger            | Your charger (e.g., 30W) might be cutting power due to Over Current Protection (OCP) under load. Use a 45W+ charger. |
 
 ## My Experience with 30W Adapters
 
