@@ -50,7 +50,7 @@ To emulate specific wattage ratings, the corresponding resistor must be soldered
 | 65W                 | ~383kΩ             |
 | 90W                 | ~294kΩ             |
 
-_Technical reference and signal logic derived from [Parkytowers](http://www.parkytowers.me.uk/thin/hp/adapter/inside.shtml)._
+_Technical reference and signal logic derived from [Parkytowers](https://www.parkytowers.me.uk/thin/hp/hp_psu.shtml)._
 
 ## Bill of Materials
 
