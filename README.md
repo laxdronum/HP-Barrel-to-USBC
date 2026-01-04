@@ -21,12 +21,15 @@ This project solves this inconvenience by enabling the use of compact, universal
 
 The circuit utilizes a PD trigger module to request a fixed **20V** profile from the USB-C charger. While HP laptops nominally operate at 19.5V, the 20V standard falls within the safe input voltage tolerance of the device's power regulation circuitry.
 
+![FreeCAD Render](assets/PD_trigger.png)
+_Figure 2: PD trigger module that I used._
+
 ### Smart Pin Spoofing
 
 HP power supplies identify their wattage capacity via an analog signal on the central ID pin. This project replicates that signal using a pull-up resistor connected between the **V+ (20V)** line and the **ID Pin**.
 
 ![Wiring Diagram](assets/wiring_diagram.png)
-_Figure 2: Circuit wiring diagram._
+_Figure 3: Circuit wiring diagram._
 
 ### Connector Pinout & Safety Warning
 
@@ -74,7 +77,7 @@ Not all USB-C chargers will work. The PD Trigger module requires a specific hand
 A custom enclosure designed in FreeCAD is provided to secure the components. The design consists of two parts.
 
 ![FreeCAD Render](assets/freecad_render.png)
-_Figure 3: 3D model render._
+_Figure 4: 3D model render._
 
 - **Source Files:** `stl/HP-PDM-Bottom.stl` `stl/HP-PDM-Top.stl`
 - **Recommended Material:** PLA or PETG
