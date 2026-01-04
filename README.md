@@ -79,13 +79,9 @@ _Figure 3: 3D model render._
 - **Source Files:** `stl/HP-PDM-Bottom.stl` `stl/HP-PDM-Top.stl`
 - **Recommended Material:** PLA or PETG
 - **Infill:** 100%
-
-### Printing Recommendations
-
 - **Layer Height:** 0.20mm or finer
 - **Supports:** Required (design is optimized for FDM printing).
 - **Orientation:** Print both parts vertical and print them on their widest part on ground.
-- **Wall Line Count:** 3 or more (for structural rigidity).
 
 ## Assembly Instructions
 
